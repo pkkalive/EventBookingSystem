@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Festival Event Booking System</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="/template.xhtml" >
+            <ui:define name="content">
+                <h:form>
+                    <h:panelGrid  columns="2" headerClass="tabHead" columnClasses="col1, col2">
+                        <f:facet name="header">
+                            <h:outputText value="Edit Venue" />
+                        </f:facet>
+                        <h:outputText value="Venue Name: " />
+                        <h:panelGroup>
+                            <h:inputText id="venueName" 
+                                         required="true"
+                                         requiredMessage="Please enter a Venue Name"
+                                         title="Venue Name: "
+                                         value="#{admin.venueToView.venueName}" >
+                            </h:inputText>
+                            <br/><h:message class="error top" for="venueName" />
+                        </h:panelGroup>
+                        
+                        <h:outputText value="Venue City: " />
+                        <h:panelGroup>
+                            <h:inputText id="venueCity"
+                                         required="true"
+                                         requiredMessage="Please enter a Venue City"
+                                         title="Venue City: "
+                                         value="#{admin.venueToView.venueCity}" >
+                            </h:inputText>
+                            <br/><h:message class="error top" for="venueCity" />
+                        </h:panelGroup>
+                        
+                        <h:panelGroup />
+                        <h:panelGroup>
+                            <h:commandButton type="submit" value="Submit" action="#{admin.updateEditedVenue}" />
+                            <h:commandButton type="submit" value="Cancel" action="#{admin.cancelVenueEdit}" />
+                            <h:commandButton type="reset" value="Reset" />
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+
